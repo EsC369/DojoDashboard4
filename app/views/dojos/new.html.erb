@@ -1,0 +1,22 @@
+<h1>Create A New Dojo:</h1>
+<style>
+.errorMsg{
+    color: red;
+}
+</style>
+<%# --------------Validation Flash:------------------- %>
+<% if flash[:error] %>
+    <% flash[:error].each do |msg| %>
+        <p class="errorMsg"><%= msg %></p>
+    <% end %>
+<% end %>
+
+<%# -----------------Form-------------------- %>
+<form action="/dojos/create" method="POST">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <p>Branch:<input type="text" name="dojo[branch]"></p>
+    <p>Street:<input type="text" name="dojo[street]"></p>
+    <p>City:<input type="text" name="dojo[city]"></p>
+    <p>State:<input type="text" name="dojo[state]"></p>
+    <p><input type="submit" value="Create"></p>
+</form>

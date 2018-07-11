@@ -1,0 +1,12 @@
+<h1>Editing <%= @dojo.branch %></h1>
+<form action="/dojos/<%= @dojo.id %>" method="POST">
+<input type="hidden" name="_method" value="patch">
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+<%# Show what is in said variables and give the change to change: NOTE The  "value=" part is what shows the already inputted info %> 
+<p>Branch: <input type="text" name="dojo[branch]" value="<%= @dojo.branch %>"></p>
+<p>Street: <input type="text" name="dojo[street]" value="<%= @dojo.street %>"></p>
+<p>City: <input type="text" name="dojo[city]" value="<%= @dojo.city %>"></p>
+<p>State: <input type="text" name="dojo[state]" value="<%= @dojo.state %>"></p>
+<p><input type="submit" value="Update"></p>
+</form>
+<p><a href="/">Go Back</a></p>
